@@ -1,4 +1,4 @@
-import { formatMoney } from "../../utils/money";
+import { formatMoney } from '../../utils/money';
 
 export function CartItemDetails({ cartItem }) {
   return (
@@ -27,4 +27,4 @@ export function CartItemDetails({ cartItem }) {
       </div>
     </>
   );
-}
+} 
