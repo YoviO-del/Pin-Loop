@@ -37,7 +37,10 @@ export function TrackingPage({ cart }) {
     if(calculatedDeliveryPercent > 100){
         calculatedDeliveryPercent = 100;
     }
-    
+
+    const isPreparing = calculatedDeliveryPercent < 33;
+    const isShipped = calculatedDeliveryPercent >= 30 && calculatedDeliveryPercent < 100;
+    const isDelivered =  calculatedDeliveryPercent === 100
     
 
     return (
@@ -64,13 +67,13 @@ export function TrackingPage({ cart }) {
                     </div>
                     <img className="product-image" src={product.product.image} />
                     <div className="progress-labels-container">
-                        <div className="progress-label">
+                        <div className={`progress-label ${isPreparing && 'current-status'}`}>
                             Preparing
                         </div>
-                        <div className="progress-label current-status">
+                        <div className={`progress-label ${isShipped && 'current-status'}`}>
                             Shipped
                         </div>
-                        <div className="progress-label">
+                        <div className={`progress-label ${isDelivered && 'current-status'}`}>
                             Delivered
                         </div>
                     </div>
