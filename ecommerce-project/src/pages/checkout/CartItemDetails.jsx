@@ -10,6 +10,10 @@ export function CartItemDetails({ deliveryOptions, cart, loadCart }) {
     const [isUpdated, setIsUpdated] = useState(false);
     const [quantity, setQuantity] = useState(0);
 
+    const quantityInput = (event) => {
+        setQuantity(Number(event.target.value))
+    }
+
 
 
     return (
@@ -45,17 +49,31 @@ export function CartItemDetails({ deliveryOptions, cart, loadCart }) {
                                 <div className="product-quantity">
                                     <span>
                                         Quantity: <span className="quantity-label">
-                                            <input value={quantity} onChange={(event) => {
-                                                setQuantity(Number(event.target.value))
-                                            }} type='text' className='quantity-input' style={{ display: isUpdated ? "inline" : "none" }} />
+                                            <input onKeyDown={async (event) => {
+                                                if(event.key === 'Enter'){
+                                                    if(isUpdated){
+                                                        await axios.post(`/api/cart-items/:${cartItem.productId}`, {
+                                                            productId: cartItem.productId,
+                                                            quantity
+                                                        })
+                                                        loadCart()
+                                                        setIsUpdated(false)
+                                                    } else {
+                                                        setIsUpdated(true);
+                                                    }
+                                                } else if(event.key === 'Escape'){
+                                                    setQuantity(cartItem.qu)
+                                                    setIsUpdated(false)
+                                                }
+                                            }} value={quantity} onChange={quantityInput} type='text' className='quantity-input' style={{ display: isUpdated ? "inline" : "none" }} />
                                             {cartItem.quantity}
                                         </span>
                                     </span>
 
                                     <span className="update-quantity-link link-primary" onClick={async () => {
-                                        
 
-                                        if(isUpdated){
+
+                                        if (isUpdated) {
                                             await axios.post(`/api/cart-items/:${cartItem.productId}`, {
                                                 productId: cartItem.productId,
                                                 quantity
