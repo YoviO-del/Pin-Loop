@@ -10,7 +10,7 @@ describe('Product component', () => {
 
     let product
     let loadCart
-
+    // makes values fresh that's why hook is used
     beforeEach(() => {
         product = {
             id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
