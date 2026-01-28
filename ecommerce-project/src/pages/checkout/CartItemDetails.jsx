@@ -1,37 +1,85 @@
-import axios from 'axios';
-import { formatMoney } from '../../utils/money';
+import axios from "axios";
+import dayjs from "dayjs";
+import { formatMoney } from "../../utils/money";
+import { DeliveryOptions } from "./DeliveryOptions";
+import { useState } from "react";
 
-export function CartItemDetails({ cartItem, productId, loadCart }) {
 
-  const deleteCartItem = async () => {
-    await axios.delete(`/api/cart-items/${productId}`)
-    await loadCart();
-  }
+export function CartItemDetails({ deliveryOptions, cart, loadCart }) {
 
-  return (
-    <>
-      <img className="product-image"
-        src={cartItem.product.image} />
+    const [isUpdated, setIsUpdated] = useState(false);
+    const [quantity, setQuantity] = useState(0);
 
-      <div className="cart-item-details">
-        <div className="product-name">
-          {cartItem.product.name}
+
+
+    return (
+        <div className="order-summary">
+            {deliveryOptions.length > 0 && cart.map((cartItem) => {
+                const selectedDeliveryOption = deliveryOptions
+                    .find((deliveryOption) => {
+                        return deliveryOption.id === cartItem.deliveryOptionId;
+                    });
+
+                const deleteCartItem = async () => {
+                    await axios.delete(`/api/cart-items/${cartItem.productId}`);
+                    await loadCart();
+                };
+
+                return (
+                    <div key={cartItem.productId} className="cart-item-container">
+                        <div className="delivery-date">
+                            Delivery date: {dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
+                        </div>
+
+                        <div className="cart-item-details-grid">
+                            <img className="product-image"
+                                src={cartItem.product.image} />
+
+                            <div className="cart-item-details">
+                                <div className="product-name">
+                                    {cartItem.product.name}
+                                </div>
+                                <div className="product-price">
+                                    {formatMoney(cartItem.product.priceCents)}
+                                </div>
+                                <div className="product-quantity">
+                                    <span>
+                                        Quantity: <span className="quantity-label">
+                                            <input value={quantity} onChange={(event) => {
+                                                setQuantity(Number(event.target.value))
+                                            }} type='text' className='quantity-input' style={{ display: isUpdated ? "inline" : "none" }} />
+                                            {cartItem.quantity}
+                                        </span>
+                                    </span>
+
+                                    <span className="update-quantity-link link-primary" onClick={async () => {
+                                        
+
+                                        if(isUpdated){
+                                            await axios.post(`/api/cart-items/:${cartItem.productId}`, {
+                                                productId: cartItem.productId,
+                                                quantity
+                                            })
+                                            loadCart()
+                                            setIsUpdated(false)
+                                        } else {
+                                            setIsUpdated(true)
+                                        }
+                                    }}>
+                                        Update
+                                    </span>
+                                    <span className="delete-quantity-link link-primary"
+                                        onClick={deleteCartItem}>
+                                        Delete
+                                    </span>
+                                </div>
+                            </div>
+
+                            <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions} loadCart={loadCart} />
+                        </div>
+                    </div>
+                );
+            })}
         </div>
-        <div className="product-price">
-          {formatMoney(cartItem.product.priceCents)}
-        </div>
-        <div className="product-quantity">
-          <span>
-            Quantity: <span className="quantity-label">2</span>
-          </span>
-          <span className="update-quantity-link link-primary">
-            Update
-          </span>
-          <span className="delete-quantity-link link-primary" onClick={deleteCartItem}>
-            Delete
-          </span>
-        </div>
-      </div>
-    </>
-  );
-} 
+    );
+}
