@@ -51,7 +51,7 @@ describe('HomePage component', () => {
             </MemoryRouter>
         )
 
-        const productContainers = await screen.findAllByTestId('product-contianer')
+        const productContainers = await screen.findAllByTestId('product-container')
 
         expect(
             productContainers.length
