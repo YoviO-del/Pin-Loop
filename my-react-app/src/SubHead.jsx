@@ -1,9 +1,13 @@
 import './SubHead.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export function SubHead() {
-
+export function SubHead({tasks, setTasks}) {
     const [inputValue, setInputValue ] = useState("");
+
+    useEffect(() => {
+        console.log(tasks)
+    }, [tasks])
+
 
     return (
         <section>
@@ -13,7 +17,7 @@ export function SubHead() {
                 }}/>
             <button id="add-button" onClick={() => {
                 if(inputValue !== ""){
-                    console.log(inputValue)
+                    setTasks([...tasks, inputValue])
                 } else {
                     console.log("Please enter a value")
                 }
