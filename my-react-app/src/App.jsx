@@ -1,12 +1,14 @@
-import {DigitalClock} from './DigitalClock'
-import './App.css'
-
+import './App.css';
+import { Header } from './Header';
+import { SubHead } from './SubHead';
+import { Tasks } from './tasks';
 function App() {
   
-
-  return (
+  return(
     <>
-      <DigitalClock />
+      <Header />
+      <SubHead />
+      <Tasks />
     </>
   )
 }
