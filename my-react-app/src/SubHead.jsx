@@ -17,7 +17,10 @@ export function SubHead({tasks, setTasks}) {
                 }}/>
             <button id="add-button" onClick={() => {
                 if(inputValue !== ""){
-                    setTasks([...tasks, inputValue])
+                    setTasks([...tasks, {
+                        task: inputValue,
+                        id: crypto.randomUUID()
+                    }])
                 } else {
                     console.log("Please enter a value")
                 }

@@ -1,22 +1,33 @@
 import { useState } from "react";
-export function Task({tasks}) {
-    const [checked, setChecked] = useState(false);
+export function Task({ setTasks, tasks }) {
+    
 
-    return(
+
+const [checked, setChecked] = useState(false);
+
+
+
+
+    return (
+        
         <>
-        {tasks.map((task) => {
+            {tasks.map((task) => {
                 return (
-                    <div className="task">
+                    <div className="task" key={task.id}>
                         <input type="checkbox" onClick={() => {
                             !checked ? setChecked(true) : setChecked(false)
-                            
-                        }}/>
-                        <p style={{textDecoration: checked ? 'line-through': ''}}>{task}</p>
-                        <button className="delete-button">Delete</button>
+
+                        }} />
+                        <p style={{ textDecoration: checked ? 'line-through' : '' }}>{task.task}</p>
+                        <button className="delete-button" onClick={() => {
+                            setTasks(prevTasks =>
+                                prevTasks.filter(t => t.id !== task.id)
+                            )
+                        }}>Delete</button>
                     </div>
                 )
             })}
         </>
     )
-    
+
 }
