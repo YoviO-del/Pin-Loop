@@ -1,8 +1,8 @@
 import './Tasks.css'
+import { Task } from './Task'
+export function Tasks({ tasks }) {
 
-export function Tasks({tasks}) {
     
-
     /*
     useEffect(() => {
         tasks.map((task) => {
@@ -20,21 +20,15 @@ export function Tasks({tasks}) {
     return (
         <main>
 
-            {tasks.map((task) => {
-                return(
-                    <div className="task">
-                        <input type="checkbox" />
-                        <p>{task}</p>
-                        <button className="delete-button">Delete</button>
-                    </div>
-                )
-            })}
-            
+            <Task tasks={tasks}/>
 
-            <div className="task">
-                {tasks.length} tasks remaining
-                <button id="clear-all-button">Clear Completed</button>
-            </div>
+
+            {tasks.length > 0 &&
+                <div className="task">
+                    {tasks.length} tasks remaining
+                    <button id="clear-all-button">Clear Completed</button>
+                </div>
+            }
 
         </main>
     )
