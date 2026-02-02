@@ -19,7 +19,8 @@ export function SubHead({tasks, setTasks}) {
                 if(inputValue !== ""){
                     setTasks([...tasks, {
                         task: inputValue,
-                        id: crypto.randomUUID()
+                        id: crypto.randomUUID(),
+                        checked: false
                     }])
                 } else {
                     console.log("Please enter a value")

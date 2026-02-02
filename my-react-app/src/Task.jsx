@@ -1,24 +1,21 @@
-import { useState } from "react";
 export function Task({ setTasks, tasks }) {
-    
-
-
-const [checked, setChecked] = useState(false);
-
-
-
 
     return (
-        
+
         <>
             {tasks.map((task) => {
                 return (
                     <div className="task" key={task.id}>
-                        <input type="checkbox" onClick={() => {
-                            !checked ? setChecked(true) : setChecked(false)
-
-                        }} />
-                        <p style={{ textDecoration: checked ? 'line-through' : '' }}>{task.task}</p>
+                        <input type="checkbox" checked={task.checked}
+                            onChange={() => {
+                                setTasks(prevTasks =>
+                                    prevTasks.map(t =>
+                                        t.id === task.id ? { ...t, checked: !t.checked } : t
+                                    )
+                                    
+                                );
+                            }} />
+                        <p style={{ textDecoration: task.checked ? 'line-through' : '' }}>{task.task}</p>
                         <button className="delete-button" onClick={() => {
                             setTasks(prevTasks =>
                                 prevTasks.filter(t => t.id !== task.id)
@@ -29,5 +26,6 @@ const [checked, setChecked] = useState(false);
             })}
         </>
     )
-
+    //for displaying you don't need to change anything but if I wan't to actually
+    //manimpulate something I use setTasks and run the function i need
 }
