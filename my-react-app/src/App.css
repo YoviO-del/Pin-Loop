@@ -3,3 +3,8 @@ body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Helvetica, Arial, sans-serif;
 }
+
+.app-container {
+  height: 100vh;
+  overflow-y: auto;
+}
