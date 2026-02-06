@@ -1,0 +1,38 @@
+.note-creator-button,
+.note-text {
+  margin-left: 10px;
+}
+
+.note-text {
+  height: 20px;
+  width: 340px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border-width: 0.1cap;
+}
+
+footer {
+  background-color: rgb(241, 239, 239);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 70px;
+}
+
+.note-creator-button {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(28, 135, 202);
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+}
+
+.note-creator-button:hover {
+  opacity: 0.8;
+}
+
