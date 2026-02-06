@@ -1,9 +1,8 @@
 import './Footer.css'
 import { useState, useEffect } from 'react'
 
-export function Footer() {
+export function Footer({notes, setNotes}) {
 
-    const [notes, setNotes] = useState([])
     const [input, setInput] = useState("")
 
     const getInput = (event) => {

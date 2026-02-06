@@ -1,23 +1,13 @@
 import './App.css'
-import { Footer } from './Footer'
-import { Notes } from './Notes'
+import { Routes, Route } from 'react-router-dom';
+import { FrontPage } from './front-note-page/FrontPage'
 function App() {
 
 
   return (
-    <main>
-      <header>
-        <p className='title'>Sticky Notes Extension - MVP Check list</p>
-      </header>
-
-      <hr />
-
-      <Notes />
-
-      <hr />
-
-      <Footer />
-    </main>
+    <Routes>
+      <Route path="/" element={<FrontPage />} />
+    </Routes>
   )
 }
 
