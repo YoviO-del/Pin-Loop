@@ -1,4 +1,5 @@
 import './Notes.css';
+import { Link } from 'react-router';
 
 export function Notes({ notes }) {
     return (

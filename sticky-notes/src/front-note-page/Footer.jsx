@@ -33,6 +33,7 @@ export function Footer({notes, setNotes}) {
 
     return (
         <footer>
+            <hr id='second-line' />
             <button className='note-creator-button' onClick={addTask}>+ New Note</button>
             <input type="text" placeholder='Create Title here...'
                 className='note-text'
