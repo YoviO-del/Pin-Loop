@@ -5,6 +5,7 @@ ol {
   flex: 1;
 }
 
+
 li {
   list-style-position: inside;
   width: 97.5%;
@@ -15,4 +16,11 @@ li {
 
 li:hover {
   background-color: rgb(138, 138, 247);
+}
+
+.notes{
+  flex: 1;              /* take up remaining vertical space in main */
+  overflow-y: auto;     /* enables vertical scroll */
+  max-height: 300px;    /* adjust this value as needed */
+  padding-right: 5px;
 }
