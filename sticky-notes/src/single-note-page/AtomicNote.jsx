@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
-
 import { NoteInput } from "./NoteInput";
-import '../front-note-page/FrontPage.css'
+import './AtomicNotes.css'
 
 export function AtomicNote({notes}) {
     // it's orinially a string
@@ -28,9 +27,12 @@ console.log("id from params:", id);
         <main>
             <header>
                 <p className='title'>{note.title}</p>
+                <hr></hr>
             </header>
 
-            <hr />
+            
+
+            
 
             <NoteInput />
         </main>
