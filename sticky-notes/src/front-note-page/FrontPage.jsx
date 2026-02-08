@@ -1,17 +1,9 @@
-import { useState, useEffect } from 'react'
 import { Footer } from './Footer'
 import { Notes } from './Notes'
 import './FrontPage.css'
 
-export function FrontPage() {
-    const [notes, setNotes] = useState(() => {
-        return JSON.parse(localStorage.getItem('notes')) || []
+export function FrontPage({notes, setNotes}) {
     
-    });
-
-    useEffect(() => {
-        localStorage.setItem('notes',JSON.stringify(notes))
-    },[notes])
 
     return (
         <>

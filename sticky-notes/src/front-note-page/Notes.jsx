@@ -7,8 +7,10 @@ export function Notes({ notes }) {
             <div className='notes'>
                 <ol>
                     {notes.map((note) => {
-                        return(
-                            <li key={note.id}>{note.title}</li>
+                        return (
+                            <Link to={`/note/${note.id}`} key={note.id}>
+                                <li>{note.title}</li>
+                            </Link>
                         )
                     })}
                 </ol>
