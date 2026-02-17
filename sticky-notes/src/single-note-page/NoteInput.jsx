@@ -1,18 +1,30 @@
 import '../front-note-page/Footer.css'
-import { Link } from 'react-router'
 import './NoteInput.css'
-export function NoteInput() {
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { SingleNoteText } from './SingleNoteText'
 
-    return (
+export function NoteInput({note, setNotes, notes}) {
+   const [edit, setEdit] = useState(false)
 
-        <footer>
+
+   const modifyEdit = () => {
+      setEdit(!edit)
+   }
+
+   return (
+      <>
+         <SingleNoteText edit={edit} note={note} setNotes={setNotes} notes={notes} />
+
+         <footer>
             <hr id='second-line' />
             <Link to={"/"}>
-                <button className='note-creator-button' >Home</button>
+               <button className='note-creator-button' >Home</button>
             </Link>
-            <input type="text" placeholder='Write more about your note'
-                className='note-text'
-            />
-        </footer>
-    )
+            <button className={edit ? 'save-button' : 'edit-button'} onClick={modifyEdit}>
+               {edit ? "Save" : "Edit"}
+            </button>
+         </footer>
+      </>
+   )
 }

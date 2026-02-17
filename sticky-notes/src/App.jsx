@@ -16,7 +16,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<FrontPage notes={notes} setNotes={setNotes}/>} />
-      <Route path='/note/:id' element={<AtomicNote notes={notes}/>}/>
+      <Route path='/note/:id' element={<AtomicNote notes={notes} setNotes={setNotes}/>}/>
     </Routes>
   )
 }

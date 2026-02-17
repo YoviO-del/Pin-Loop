@@ -1,7 +1,4 @@
-.note-creator-button,
-.note-text {
-  margin-left: 10px;
-}
+
 
 .note-text {
   height: 20px;
@@ -15,9 +12,8 @@
 footer {
   background-color: rgb(241, 239, 239);
   border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 70px;
-  margin-top: 20px; /* Add this line */
+  display: flex;
+  align-items: center;
 }
 
 .note-creator-button {
@@ -37,3 +33,30 @@ footer {
   opacity: 0.8;
 }
 
+.note-info {
+  margin-bottom: auto;
+  margin-left: 6px;
+  min-height: 1.5em;
+  padding: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.edit-button {
+  background-color: rgb(128, 128, 128);
+}
+
+.save-button {
+  background-color: rgb(15, 160, 39);
+}
+
+.edit-button,.save-button{
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline;
+  margin-left: 10px;
+}
