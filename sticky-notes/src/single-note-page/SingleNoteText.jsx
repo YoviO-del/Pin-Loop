@@ -46,7 +46,7 @@ export function SingleNoteText({ edit, note, setNotes, notes }) {
         value={noteInput}
         onChange={(e) => setNoteInput(e.target.value)}
         disabled={!edit}
-        placeholder={!text ? "Start typing your notes here…" : text.information} />
+        placeholder={noteInput === '' ? "Start typing your notes here…" : text.information} />
     </>
   )
 }
