@@ -4,6 +4,10 @@ ol {
   padding-bottom: 30px;
   flex: 1;
 }
+.notes a {
+  text-decoration: none; /* removes underline */
+  color: inherit;        /* keeps the text black like your li */
+}
 
 
 li {
@@ -11,6 +15,7 @@ li {
   width: 97.5%;
   padding: 6px;
   box-sizing: border-box;
+  color: black;
   margin-left: 10px;
 }
 
