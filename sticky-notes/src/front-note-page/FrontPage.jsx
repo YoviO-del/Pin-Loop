@@ -9,7 +9,7 @@ export function FrontPage({notes, setNotes}) {
         <>
             <main>
                 <header>
-                    <p className='title'>Sticky Notes Extension - MVP Check list</p>
+                    <p className='title'>Task-Pin</p>
                 </header>
 
                 <hr />

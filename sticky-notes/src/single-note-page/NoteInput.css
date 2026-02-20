@@ -29,7 +29,7 @@ footer {
 
 }
 
-.note-creator-button:hover {
+.note-creator-button:hover, #delete-button:hover {
   opacity: 0.8;
 }
 
@@ -51,7 +51,12 @@ footer {
   background-color: rgb(15, 160, 39);
 }
 
-.edit-button,.save-button{
+#delete-button {
+  background-color: red;
+}
+
+
+.edit-button,.save-button, #delete-button{
   color: white;
   border: none;
   cursor: pointer;
@@ -60,3 +65,4 @@ footer {
   display: inline;
   margin-left: 10px;
 }
+
