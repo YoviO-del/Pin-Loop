@@ -28,4 +28,5 @@ li:hover {
   overflow-y: auto;     /* enables vertical scroll */
   max-height: 300px;    /* adjust this value as needed */
   padding-right: 5px;
+  position: relative;
 }

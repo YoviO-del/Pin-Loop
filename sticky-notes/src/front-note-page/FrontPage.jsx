@@ -14,7 +14,7 @@ export function FrontPage({notes, setNotes}) {
 
                 <hr />
 
-                <Notes notes={notes} />
+                <Notes notes={notes} /*setNotes={setNotes}*/ />
 
 
                 <Footer notes={notes} setNotes={setNotes} />

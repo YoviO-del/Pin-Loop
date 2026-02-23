@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            position: relative;
+            /* Essential for containing absolute elements */
+            width: 50%;
+        }
+
+        .container img {
+            width: 100%;
+            /* Make image responsive */
+            height: auto;
+        }
+
+        .overlay-title{
+            position: absolute;
+            top: 20%;
+            left: 48%;
+            z-index: 10;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            /* Position vertically */
+            left: 50%;
+            /* Position horizontally */
+            transform: translate(-50%, -50%);
+            /* Center the text perfectly */
+            color: rgb(0, 0, 0);
+            font-size: 24px;
+            z-index: 10;
+            /* Ensures it stays on top */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="sticky-notes/src/assets/sticky-note.webp">
+        <h2 class="overlay-title">Title</h2>
+        <p class="overlay-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Fugiat animi repudiandae, voluptatum inventore quaerat excepturi nulla
+            laborum mollitia soluta sapiente cupiditate
+            tempora fuga dolore laudantium aliquid alias minus dignissimos porro!
+        </p>
+    </div>
+</body>
+
+</html>
