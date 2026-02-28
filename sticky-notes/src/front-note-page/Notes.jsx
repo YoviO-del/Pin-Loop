@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './Notes.css';
 import { Link } from 'react-router-dom';
 import { StickyNote } from './StickyNote';
 //import { DndContext } from '@dnd-kit/core';
 //import { DraggableNote } from './DraggableNote';
 
-export function Notes({ notes }) {
+export function Notes({id, setId, notes, setShowNote }) {
 
-  const [id, setId] = useState("");
-  const [showNote, setShowNote] = useState(false);
+  
   /*
     function handleDragEnd(event) {
       const { active, delta } = event;
@@ -36,13 +35,13 @@ export function Notes({ notes }) {
           }
       };
   */
-  const note = notes.find((n) => n.id === id)
 
   useEffect(() => {
     console.log(id);
   }, [id])
 
   return (
+    <>
     <div className='notes'>
       <ol>
         {notes.map((note) => (
@@ -62,9 +61,11 @@ export function Notes({ notes }) {
 
 
       </ol>
-      {note && showNote ? <StickyNote note={note} setShowNote={setShowNote}/> : ''}
+      
     </div>
-  );
+   
+    </>  
+);
 
 
 }

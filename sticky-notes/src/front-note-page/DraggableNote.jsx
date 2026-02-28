@@ -1,28 +1,32 @@
-/*
-import { Link } from 'react-router-dom';
-import { useDraggable } from '@dnd-kit/core';
 
-export function DraggableNote({ note }) {
+import { useDraggable } from '@dnd-kit/core';
+import { StickyNote } from './StickyNote'
+import './StickyNote.css'
+
+export function DraggableNote({ note, setShowNote }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: note.id,
   });
 
   const style = {
-    position: 'absolute',
-    width: '200px',
-    padding: '10px',
-    background: 'yellow',
-    left: note.x || 0,
-    top: note.y || 0,
-    transform: transform
-      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
-      : undefined,
-  };
-
+  position: 'relative',   // ← change back to absolute
+  left: note.x || 0,
+  top: note.y || 0,
+  transform: transform
+    ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+    : undefined,
+};
   return (
-    <li ref={setNodeRef} style={style} {...listeners} {...attributes}>
-      <Link to={`/note/${note.id}`}>{note.title}</Link>
-    </li>
+    <div ref={setNodeRef} style={style} className='note-wrapper'>
+      {/* Only this handle should be draggable */}
+      <div {...listeners} {...attributes} className="drag-handle">
+        <p></p>
+      </div>
+
+      {/* StickyNote content is not part of the draggable listener */}
+      <StickyNote note={note} setShowNote={setShowNote} />
+
+      <div className="resize-handle" />
+    </div>
   );
 }
-  */

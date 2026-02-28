@@ -13,9 +13,9 @@ export function Footer({notes, setNotes}) {
         if (input !== "") {
             setNotes([...notes, {
                 id: crypto.randomUUID(),
-                title: input//,
-                //x:0,
-                //y: 0
+                title: input,
+                x:0,
+                y: 0
             }])
         }
 

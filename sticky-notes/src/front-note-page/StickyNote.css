@@ -1,39 +1,97 @@
-.container {
-    position: relative;
-    /* Essential for containing absolute elements */
-    width: 50%;
+/* =========================
+   NOTE WRAPPER
+========================= */
+
+.note-wrapper {
+  position: absolute;
+  width: 300px;        /* fixed decent size */
+  min-width: 250px;
+  min-height: 250px;
+  resize: both;
+  overflow: hidden;
 }
 
-.container img {
-    width: 100%;
-    /* Make image responsive */
-    height: auto;
+
+/* =========================
+   IMAGE CONTAINER
+========================= */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
+
+.container #stickynote-background {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;  
+  background-color: rgb(255, 255, 153); /* keeps full sticky note visible */
+}
+
+
+/* =========================
+   OVERLAY TEXT
+========================= */
 
 .overlay-title {
-    position: absolute;
-    top: 20%;
-    left: 48%;
-    z-index: 10;
-}
-
-.close-button{
-    position: absolute;
-    top: 20%;
-    left: 80%;
-    z-index: 10;
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: 22px;
 }
 
 .overlay-text {
-    position: absolute;
-    top: 50%;
-    /* Position vertically */
-    left: 50%;
-    /* Position horizontally */
-    transform: translate(-50%, -50%);
-    /* Center the text perfectly */
-    color: rgb(0, 0, 0);
-    font-size: 24px;
-    z-index: 10;
-    /* Ensures it stays on top */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 18px;
+  width: 70%;
+  text-align: center;
+  z-index: 5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+
+/* =========================
+   DRAG HANDLE (PIN)
+========================= */
+
+.drag-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: pink;
+  cursor: grab;
+  z-index: 20;
+}
+
+
+/* =========================
+   RESIZE HANDLE
+========================= */
+
+.resize-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+  background-color: black;
 }

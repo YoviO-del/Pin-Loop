@@ -1,13 +1,19 @@
-import stickyNote from "../assets/sticky-note.webp";
 import './StickyNote.css'
-export function StickyNote({note, setShowNote}) {
+export function StickyNote({ note, setShowNote }) {
     return (
         <div className="container">
-            <img src={stickyNote} />
+            <div id="stickynote-background"></div>
+            
             <h2 className="overlay-title">{note.title}</h2>
-            <button className="close-button" onClick={() => {
-                setShowNote(false)
-            }}>X</button>
+            <button
+                className="close-button"
+                onClick={(e) => {
+                    e.stopPropagation();  // Prevent drag from intercepting
+                    setShowNote(false);
+                }}
+            >
+                X
+            </button>
             <p className="overlay-text">
                 {note.information ? note.information : 'Please give note info'}
             </p>
