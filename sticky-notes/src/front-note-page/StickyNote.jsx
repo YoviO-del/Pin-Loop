@@ -1,15 +1,19 @@
 import './StickyNote.css'
-export function StickyNote({ note, setShowNote }) {
+export function StickyNote({ note, setNotes }) {
     return (
         <div className="container">
             <div id="stickynote-background"></div>
-            
+
             <h2 className="overlay-title">{note.title}</h2>
             <button
                 className="close-button"
                 onClick={(e) => {
                     e.stopPropagation();  // Prevent drag from intercepting
-                    setShowNote(false);
+                    setNotes( prev => prev.map(n =>
+                        n.id === note.id
+                            ? { ...n, visibility: !n.visibility }
+                            : n
+                    ))
                 }}
             >
                 X

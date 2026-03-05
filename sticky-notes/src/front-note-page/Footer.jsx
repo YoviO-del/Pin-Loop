@@ -15,7 +15,8 @@ export function Footer({notes, setNotes}) {
                 id: crypto.randomUUID(),
                 title: input,
                 x:0,
-                y: 0
+                y: 0,
+                visibility: false
             }])
         }
 

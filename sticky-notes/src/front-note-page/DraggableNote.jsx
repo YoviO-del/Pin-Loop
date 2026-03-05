@@ -3,7 +3,7 @@ import { useDraggable } from '@dnd-kit/core';
 import { StickyNote } from './StickyNote'
 import './StickyNote.css'
 
-export function DraggableNote({ note, setShowNote }) {
+export function DraggableNote({ note, setNotes }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: note.id,
   });
@@ -24,7 +24,7 @@ export function DraggableNote({ note, setShowNote }) {
       </div>
 
       {/* StickyNote content is not part of the draggable listener */}
-      <StickyNote note={note} setShowNote={setShowNote} />
+      <StickyNote note={note} setNotes={setNotes} />
 
       <div className="resize-handle" />
     </div>

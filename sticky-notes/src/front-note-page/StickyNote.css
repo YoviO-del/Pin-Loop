@@ -1,19 +1,22 @@
 /* =========================
-   NOTE WRAPPER
+   NOTE WRAPPER (Resizable Box)
 ========================= */
 
 .note-wrapper {
   position: absolute;
-  width: 300px;        /* fixed decent size */
+  width: 300px;
+  height: 300px;
+
   min-width: 250px;
   min-height: 250px;
+
   resize: both;
   overflow: hidden;
 }
 
 
 /* =========================
-   IMAGE CONTAINER
+   CONTAINER
 ========================= */
 
 .container {
@@ -22,12 +25,35 @@
   height: 100%;
 }
 
-.container #stickynote-background {
+
+/* =========================
+   STICKY NOTE BACKGROUND
+========================= */
+
+#stickynote-background {
   width: 100%;
   height: 100%;
-  display: block;
-  object-fit: contain;  
-  background-color: rgb(255, 255, 153); /* keeps full sticky note visible */
+
+  background-color: #fff89a;
+  border-radius: 10px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   OVERLAY TITLE
+========================= */
+
+.overlay-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 5;
 }
 
 
@@ -35,33 +61,37 @@
    OVERLAY TEXT
 ========================= */
 
-.overlay-title {
-  position: absolute;
-  top: 22%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  font-size: 22px;
-}
-
 .overlay-text {
   position: absolute;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
-  font-size: 18px;
-  width: 70%;
+
+  width: 75%;
   text-align: center;
+
+  font-size: 18px;
+  color: black;
+
   z-index: 5;
 }
 
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
 .close-button {
   position: absolute;
-  top: 10%;
-  right: 10%;
-  z-index: 10;
+  top: 8%;
+  right: 8%;
+
+  background: transparent;
+  border: none;
+  font-size: 16px;
   cursor: pointer;
+
+  z-index: 10;
 }
 
 
@@ -74,9 +104,12 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+
   width: 40px;
   height: 40px;
+
   background-color: pink;
+
   cursor: grab;
   z-index: 20;
 }
@@ -92,6 +125,7 @@
   height: 20px;
   right: 0;
   bottom: 0;
+
   cursor: nwse-resize;
   background-color: black;
 }
