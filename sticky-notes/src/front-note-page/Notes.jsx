@@ -1,7 +1,6 @@
 //import { useEffect } from 'react';
 import './Notes.css';
 import { Link } from 'react-router-dom';
-import { StickyNote } from './StickyNote';
 
 export function Notes({setNotes, notes }) {
 

@@ -18,7 +18,9 @@ export function Footer({notes, setNotes}) {
                 y: 0,
                 visibility: false
             }])
+            setInput("");
         }
+
 
     }
 
