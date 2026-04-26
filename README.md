@@ -50,6 +50,10 @@ sticky-notes/
 - **Vite 7** — Build tool
 - **Chrome Extension API** — Extension platform
 
+
+<img width="404" height="222" alt="image" src="https://github.com/user-attachments/assets/d325d4dc-1614-4d2c-9aec-1f26b30a08a8" />
+
+
 ## Installation
 
 ```bash
