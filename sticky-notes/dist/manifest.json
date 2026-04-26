@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Pin-Loop",
+  "version": "1.0",
+  "description": "Add, edit, and delete notes. Additionally, you can create sticky notes with these notes.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage"]
+}
