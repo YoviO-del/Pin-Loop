@@ -51,7 +51,7 @@ sticky-notes/
 - **Chrome Extension API** — Extension platform
 
 
-<img width="404" height="222" alt="image" src="https://github.com/user-attachments/assets/d325d4dc-1614-4d2c-9aec-1f26b30a08a8" />
+
 
 
 ## Installation
@@ -63,7 +63,6 @@ npm run build
 Loading the Extension
 Open Chrome and navigate to chrome://extensions/
 Enable Developer mode (toggle in top-right)
-<img width="1913" height="189" alt="image" src="https://github.com/user-attachments/assets/30d0085e-b8e7-4eb3-bd6b-f874dfa6d950" />
 
 Click Load unpacked
 Select the dist/ folder from this project
@@ -78,6 +77,14 @@ The content script creates a fixed-position overlay (#task-pin-container) that c
 Routes
 / — FrontPage (multi-note view)
 /note/:id — AtomicNote (single note editing)
+```
+
+## Images when you install 
+<img width="1913" height="189" alt="image" src="https://github.com/user-attachments/assets/30d0085e-b8e7-4eb3-bd6b-f874dfa6d950" />
+
+<img width="404" height="222" alt="image" src="https://github.com/user-attachments/assets/d325d4dc-1614-4d2c-9aec-1f26b30a08a8" />
+
+
 
 <img width="404" height="222" alt="image" src="https://github.com/user-attachments/assets/7ae9d8f9-f4e5-4978-bb2c-878c391c8733" />
 
