@@ -54,13 +54,13 @@ sticky-notes/
 
 ```bash
 npm install
-
-npm run dev
-npm run build (for development)
+npm run build 
 
 Loading the Extension
 Open Chrome and navigate to chrome://extensions/
 Enable Developer mode (toggle in top-right)
+<img width="1913" height="189" alt="image" src="https://github.com/user-attachments/assets/30d0085e-b8e7-4eb3-bd6b-f874dfa6d950" />
+
 Click Load unpacked
 Select the dist/ folder from this project
 Extension Architecture
@@ -74,3 +74,6 @@ The content script creates a fixed-position overlay (#task-pin-container) that c
 Routes
 / — FrontPage (multi-note view)
 /note/:id — AtomicNote (single note editing)
+
+<img width="404" height="222" alt="image" src="https://github.com/user-attachments/assets/7ae9d8f9-f4e5-4978-bb2c-878c391c8733" />
+
